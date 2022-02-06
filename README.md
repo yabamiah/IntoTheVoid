@@ -6,7 +6,6 @@
  </div>
 
 <br />
-<br />
 
 [![Made with - Neovim](https://img.shields.io/badge/Made_with-Neovim-5E9074?style=for-the-badge&logo=Neovim&logoColor=white)](https://neovim.io/) 
 [![os - Void Linux](https://img.shields.io/badge/os-Void_Linux-5E9074?style=for-the-badge)](https://voidlinux.org/) 
