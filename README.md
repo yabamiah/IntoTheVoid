@@ -38,13 +38,13 @@ Esse script tem a intenção de ajudar novos usuários do Void Linux e ensinar s
         $ git clone https://github.com/yabamiah/IntoTheVoid.git
         $ vim install # configure isto para o seu driver de vídeo
         $ chmod 755 install
-3. Renicie e estará pronto para ciar no vazio!
-    > Não esqueça de dar atenção na documentação do Void para ter uma melhor compreensão.
+3. Renicie e estará pronto para cair no vazio!
+    > Não esqueça de dar atenção a documentação do Void para ter uma melhor compreensão.
 
 ## Por quê Void Linux?
 + Extramamente pequeno
 
-Void Linux é um sistema extramente pequeno e pequeno, mantido com poucos softwares incluídos. 
+Void Linux é um sistema extramente pequeno e limpo, mantido com poucos softwares incluídos. 
 
 + Rápido
 
