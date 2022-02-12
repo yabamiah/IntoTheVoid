@@ -1,162 +1,140 @@
 #!/usr/bin/bash
+LGREEN=$(echo '\033[01;32m')
 
 clear
 
 #-------Atualizar Repositório e o Sistema-------#
-	 "╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
 echo "║Atualizar Repositorios║"
-	 "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜"
+echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
 
 sleep 1s
 
 sudo xbps-install -S void-repo-multilib-nonfree void-repo-multilib void-repo-nonfree
 
-	 "╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
 echo "║Atualizar Sistema║"
-	 "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜"
+echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
 sudo xbps-install -Su
 
 sleep 1s
 
 clear
 
-XORG
 
 #--------------Xorg Minimo--------------#
-declare -f XORG
-function XORG()
-{
-		 "╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
-	echo "║Instalando Xorg Minimo║"
-		 "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜"
 
-	#-------Edite para o driver que você possui-------#
 
-	xbps-install -S xorg-server
+echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "║Instalando Xorg Minimo║"
+echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
 
-	#xbps-install -S xf86-video-intel
+#-------Edite para o driver que você possui-------#
 
-	#xbps-install -S xf86-video-nouveau
+xbps-install -S xorg-server
 
-	#xbps-install -S xf86-video-openchrome
+#xbps-install -S xf86-video-intel
 
-	#xbps-install -S xf86-video-amdgpu
+#xbps-install -S xf86-video-nouveau
 
-	#xbps-install -S xf86-video-ati
+#xbps-install -S xf86-video-openchrome
 
-	xbps-install -S xf86-video-fbdev
+#xbps-install -S xf86-video-amdgpu
 
-	xbps-install -S xf86-input-libinput
+#xbps-install -S xf86-video-ati
 
-	xbps-install -S xinit
+xbps-install -S xf86-video-fbdev
 
-	xbps-install -S xorg-setxkbmap
+xbps-install -S xf86-input-libinput
 
-	xbps-install -S xorg-fonts
+xbps-install -S xinit
 
-	xbps-install -S xsetroot
+xbps-install -S xorg-setxkbmap
 
-	sleep 1s
+xbps-install -S xorg-fonts
 
-	clear
+xbps-install -S xsetroot
 
-	BSPWMVOID
-}
+sleep 1s
+
+clear
+
 
 #--------------BSPWM--------------
-declare -f BSPWMVOID		
-function BSPWMVOID()
-{
-		 "╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
-	echo "║Instalando Pacotes Basicos BSPWM║"
-		 "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜"
 
-	xbps-install bspwm sxhkd xsetroot urxvt dmenu
+echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "║Instalando Pacotes Basicos BSPWM║"
+echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
 
-	clear	
+sudo xbps-install bspwm sxhkd xsetroot urxvt dmenu
 
-	sleep 1s
+clear	
 
-	CONFIGFILES	
-}
+sleep 1s
 
 #------Configurando arquivos de configuração------#
-declare -f 	CONFIGFILES
-function CONFIGFILES()
-{
-		 "╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
-	echo "║Configurando Arquivos║"
-		 "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜"
 
-	mkdir -p ~/.config/{bspwm,sxhkd}
+echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "║Configurando Arquivos║"
+echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
 
-	cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
+mkdir -p ~/.config/{bspwm,sxhkd}
 
-	cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
+cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
 
-	echo "xsetroot -cursor_name left_ptr &" >> ~/.config/bspwm/bspwmrc
+cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
+
+echo "xsetroot -cursor_name left_ptr &" >> ~/.config/bspwm/bspwmrc
 	
-	echo "nitrogen --restore &" >> ~/.config/bspwm/bspwmrc
+echo "nitrogen --restore &" >> ~/.config/bspwm/bspwmrc
 
-	sleep 1s
+sleep 1s
 
-	clear
-
-	APLIBASIC
-}
+clear
 
 #-----Instalando Aplicações Básicas----#
-declare -f APLIBASIC
-function APLIBASIC()
-{
-		 "╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
-	echo "║Instalando Aplicacoes Basicas║"
-		 "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜"
 
-	xbps-install -S base-devel git vim
+echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "║Instalando Aplicacoes Basicas║"
+echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
 
-	xbps-install -S lxappearance
+sudo xbps-install -S base-devel git vim
 
-	xbps-install -S nitrogen
+sudo xbps-install -S lxappearance
 
-	xbps-install -S firefox firefox-i18n-pt-BR
+sudo xbps-install -S nitrogen
 
-	xbps-install -S pulseaudio
+sudo xbps-install -S firefox firefox-i18n-pt-BR
 
-	xbps-install -S pavucontrol
+sudo xbps-install -S pulseaudio
 
-	xbps-install -S NetworkManager
+sudo xbps-install -S pavucontrol
 
-	sleep 1s
+sudo xbps-install -S NetworkManager
 
-	clear
+sleep 1s
 
-	SERVICOS
-
-}
+clear
 
 #-----Configurando Serviços----#
-declare -f SERVICOS
-functios SERVICOS()
-{
-		 "╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
-	echo "║Configurando Serviços║"
-		 "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜"
 
-	ln -s /etc/sv/dbus /var/service/
+echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "║Configurando Serviços║"
+echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
 
-	ln -s /etc/sv/pulseaudio /var/service/
+ln -s /etc/sv/dbus /var/service/
 
-	ln -s /etc/sv/NetworkManager /var/service/
+ln -s /etc/sv/pulseaudio /var/service/
 
-	sleep 1s
+ln -s /etc/sv/NetworkManager /var/service/
 
-	clear
-}
+sleep 1s
 
-	 "╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+clear
+
+echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
 echo "║Instalação Concluida!║"
-	 "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜"
+echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
 
 sleep 2s
 
