@@ -1,20 +1,20 @@
-#!/usr/bin/bash
-LGREEN=$(echo '\033[01;32m')
+#!/bin/sh
 
 clear
 
 #-------Atualizar Repositório e o Sistema-------#
-echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+
+echo "╓══════════════════════╖"
 echo "║Atualizar Repositorios║"
-echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
+echo "╙══════════════════════╜"
 
 sleep 1s
 
 sudo xbps-install -S void-repo-multilib-nonfree void-repo-multilib void-repo-nonfree
 
-echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "╓═════════════════╖"
 echo "║Atualizar Sistema║"
-echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
+echo "╙═════════════════╜"
 sudo xbps-install -Su
 
 sleep 1s
@@ -24,36 +24,35 @@ clear
 
 #--------------Xorg Minimo--------------#
 
-
-echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "╓══════════════════════╖"
 echo "║Instalando Xorg Minimo║"
-echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
+echo "╙══════════════════════╜"
 
 #-------Edite para o driver que você possui-------#
 
-xbps-install -S xorg-server
+sudo xbps-install -S xorg-server
 
-#xbps-install -S xf86-video-intel
+#sudo xbps-install -S xf86-video-intel
 
-#xbps-install -S xf86-video-nouveau
+#sudo xbps-install -S xf86-video-nouveau
 
-#xbps-install -S xf86-video-openchrome
+#sudo xbps-install -S xf86-video-openchrome
 
-#xbps-install -S xf86-video-amdgpu
+#sudo xbps-install -S xf86-video-amdgpu
 
-#xbps-install -S xf86-video-ati
+#sudo xbps-install -S xf86-video-ati
 
-xbps-install -S xf86-video-fbdev
+sudo xbps-install -S xf86-video-fbdev
 
-xbps-install -S xf86-input-libinput
+sudo xbps-install -S xf86-input-libinput
 
-xbps-install -S xinit
+sudo xbps-install -S xinit
 
-xbps-install -S xorg-setxkbmap
+sudo xbps-install -S setxkbmap
 
-xbps-install -S xorg-fonts
+sudo xbps-install -S xorg-fonts
 
-xbps-install -S xsetroot
+sudo xbps-install -S xsetroot
 
 sleep 1s
 
@@ -62,21 +61,27 @@ clear
 
 #--------------BSPWM--------------
 
-echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "╓════════════════════════════════╖"
 echo "║Instalando Pacotes Basicos BSPWM║"
-echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
+echo "╙════════════════════════════════╜"
 
-sudo xbps-install bspwm sxhkd xsetroot urxvt dmenu
+sudo xbps-install bspwm 
 
-clear	
+sudo xbps-install sxhkd
+
+sudo xbps-install rxvt-unicode
+
+sudo xbps-install dmenu	
 
 sleep 1s
 
+clear
+
 #------Configurando arquivos de configuração------#
 
-echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "╓═════════════════════╖"
 echo "║Configurando Arquivos║"
-echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
+echo "╙═════════════════════╜"
 
 mkdir -p ~/.config/{bspwm,sxhkd}
 
@@ -84,21 +89,25 @@ cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
 
 cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
 
+cp /usr/X11/xinit/xinitrc ~/.xinitrc
+
 echo "xsetroot -cursor_name left_ptr &" >> ~/.config/bspwm/bspwmrc
 	
 echo "nitrogen --restore &" >> ~/.config/bspwm/bspwmrc
 
-sleep 1s
+echo "exec bspwm" >> .xinitrc
+
+sleep 3s
 
 clear
 
 #-----Instalando Aplicações Básicas----#
 
-echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "╓═════════════════════════════╖"
 echo "║Instalando Aplicacoes Basicas║"
-echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
+echo "╙═════════════════════════════╜"
 
-sudo xbps-install -S base-devel git vim
+sudo xbps-install -S base-devel vim
 
 sudo xbps-install -S lxappearance
 
@@ -118,23 +127,25 @@ clear
 
 #-----Configurando Serviços----#
 
-echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+echo "╓═════════════════════╖"
 echo "║Configurando Serviços║"
-echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
+echo "╙═════════════════════╜"
 
-ln -s /etc/sv/dbus /var/service/
+sudo ln -s /etc/sv/dbus /var/service/
 
-ln -s /etc/sv/pulseaudio /var/service/
+sudo ln -s /etc/sv/pulseaudio /var/service/
 
-ln -s /etc/sv/NetworkManager /var/service/
+sudo ln -s /etc/sv/NetworkManager /var/service/
 
-sleep 1s
+sleep 3s
 
 clear
 
-echo "${LGREEN}╓╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╖"
+#----Instalação Concluída!----#
+
+echo "╓═════════════════════╖"
 echo "║Instalação Concluida!║"
-echo "╙╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╜${LGREEN}"
+echo "╙═════════════════════╜"
 
 sleep 2s
 
